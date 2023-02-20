@@ -1,0 +1,109 @@
+$headings: h1 h2 h3 h4 h5 h6;
+$font-size-base: 16px;
+
+$font-size-upper: 54px;
+$font-size-dec: 8px;
+$font-size-mobile-divider: 1.5;
+@each $heading in $headings {
+    #{$heading} {
+        font-size: $font-size-upper;
+        font-size: calc($font-size-upper / $font-size-base) + em;
+        @include media('<md') {
+            font-size: calc(calc($font-size-upper / $font-size-base) / $font-size-mobile-divider) + em;
+        }
+    }
+    $font-size-upper: $font-size-upper - $font-size-dec;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-header);
+    line-height: 1.15em;
+}
+p {
+    line-height: 1.5em;
+}
+p.p-small {
+    font-size: 0.8em;
+    color: var(--text-color-secondary);
+}
+
+@import './gutters.scss';
+
+$contentWidth: 1440px;
+$mobileBreakpoint: '<lg';
+
+$primaryColor: var(--primary-color);
+//@import './gap.scss';
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    //overflow: hidden;
+    .content {
+        width: 100%;
+        max-width: $contentWidth;
+        padding: 2rem;
+        @include media('<lg') {
+            padding: 2rem 1.5rem;
+        }
+        @include media('<md') {
+            padding: 1.5rem 1rem;
+        }
+        .blok {
+            margin: auto;
+            width: 50%;
+            @include media('<xl') {
+                width: 66.6667%;
+            }
+            @include media('<lg') {
+                width: 83.3333%;
+            }
+            @include media('<md') {
+                width: 100%;
+            }
+            &.full-width {
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+a {
+    color: var(--primary-color);
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+@keyframes p-progress-spinner-color {
+    100%,
+    0% {
+        stroke: var(--primary-color);
+    }
+    50% {
+        stroke: var(--primary-color-lighter);
+    }
+}
+
+.shadow {
+    text-shadow: 2px 2px 4px #000000;
+}
+
+// extentions
+.p-divider.p-divider-horizontal {
+    &:before {
+        border-top-color: var(--primary-color-lighter);
+    }
+}
+
+.caption {
+    font-size: 0.75rem;
+    color: var(--text-color-secondary);
+}
