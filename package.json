@@ -18,7 +18,7 @@
   "dependencies": {
     "primeicons": "^6.0.1",
     "primevue": "^3.23.0",
-    "primevue-designer": "github:bonomite/design-system",
+    "primevue-designer": "github:bonomite/design-system#544635d0e3bb4c6f51bea4421d75b0e4f6c9f9a5",
     "sass": "^1.58.3"
   }
 }
