@@ -1,12 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 import { useRuntimeConfig } from '#app'
-import menuDataImport from '~/utilities/menuData_static.js'
 import { getMenuData } from '~/utilities/menuData.js'
 const config = useRuntimeConfig()
 const route = useRoute()
 const darkMode = ref(false)
-const menuData = ref(menuDataImport)
 const globalMenuData = useMenuData()
 globalMenuData.value = await getMenuData()
 </script>
