@@ -89,7 +89,7 @@ globalMenuData.value = await getMenuData()
         /> -->
       </Head>
     </Html>
-    <Menubar :model="menuData">
+    <Menubar :model="globalMenuData">
       <template #start>
         <nuxt-link to="/" class="logo-holder-link">
           <img src="/images/dts_alone_2022.svg" alt="dts logo" />

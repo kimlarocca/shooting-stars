@@ -13,7 +13,7 @@ export async function getMenuData() {
         `${config.STORYBLOK_API_URL}/links/?token=${config.STORYBLOK_API_KEY_PREVIEW}&version=published`
     )
 
-    //console.log('menuData = ', linksData)
+    console.log('menuData = ', linksData)
 
     let menuDataArr = []
     const foldersToSkipArr = ['surgery', 'enrichment', 'articles']
@@ -33,7 +33,7 @@ export async function getMenuData() {
         }
     }
 
-    //console.log('menuDataArr = ', menuDataArr)
+    console.log('menuDataArr = ', menuDataArr)
 
     return menuDataArr
 }
