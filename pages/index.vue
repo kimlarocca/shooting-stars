@@ -3,7 +3,7 @@ const story = await useAsyncStoryblok('home', { version: 'draft' })
 </script>
 
 <template>
-  <pre>{{ story }}</pre>
+  <!-- <pre>{{ story }}</pre> -->
   <StoryblokComponent v-if="story" :blok="story.content" />
   <div class="grid mt-5">
     <div class="box col-6">
