@@ -13,10 +13,9 @@
   },
   "devDependencies": {
     "@storyblok/nuxt": "^5.1.0",
-    "nuxt": "npm:nuxt3@^3.2.3-rc.0-27949872.7479d46"
+    "nuxt": "npm:nuxt3@latest"
   },
   "dependencies": {
-    "primeicons": "^6.0.1",
     "primevue": "^3.23.0",
     "primevue-designer": "github:bonomite/design-system#544635d0e3bb4c6f51bea4421d75b0e4f6c9f9a5",
     "sass": "^1.58.3"

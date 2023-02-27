@@ -9,6 +9,15 @@ const props = defineProps({
   },
 })
 const blurb = computed(() => renderRichText(props.blok.blurb))
+
+const getIcon = (link) => {
+  const str = String(link.title)
+  if (str !== 'My website') {
+    return str.toLowerCase()
+  } else {
+    return 'link'
+  }
+}
 </script>
 <template>
   <div v-editable="blok">
@@ -23,10 +32,49 @@ const blurb = computed(() => renderRichText(props.blok.blurb))
             <p class="name">{{ blok.name }}</p>
             <p class="title">{{ blok.title }}</p>
             <div class="blurb" v-html="blurb"></div>
-            <v-flexible-link :to="`tel:${blok.phone}`">
-              <p>{{ blok.phone }}</p>
-            </v-flexible-link>
-            <v-flexible-link
+            <div class="flex">
+              <v-flexible-link
+                :to="`tel:${blok.phone}`"
+                raw
+                :aria-label="blok.phone"
+              >
+                <Button
+                  aria-hidden="true"
+                  icon="pi pi-phone"
+                  v-tooltip.top="blok.phone"
+                  class="p-button-rounded p-button-text"
+                />
+              </v-flexible-link>
+              <v-flexible-link
+                :to="`tel:${blok.email.url}`"
+                raw
+                :aria-label="blok.email.url"
+              >
+                <Button
+                  aria-hidden="true"
+                  icon="pi pi-envelope"
+                  v-tooltip.top="blok.email.url"
+                  class="p-button-rounded p-button-text"
+                />
+              </v-flexible-link>
+              <template v-for="linkBlok in props.blok">
+                <v-flexible-link
+                  v-if="linkBlok.linktype === 'url'"
+                  :to="`tel:${linkBlok.url}`"
+                  raw
+                  :key="linkBlok.title"
+                  :aria-label="linkBlok.title"
+                >
+                  <Button
+                    aria-hidden="true"
+                    :icon="`pi pi-${getIcon(linkBlok)}`"
+                    v-tooltip.top="linkBlok.title"
+                    class="p-button-rounded p-button-text"
+                  />
+                </v-flexible-link>
+              </template>
+            </div>
+            <!-- <v-flexible-link
               :to="`mailto:${blok.email.email}`"
               :target="blok.email.target"
             >
@@ -53,6 +101,30 @@ const blurb = computed(() => renderRichText(props.blok.blurb))
             >
               <p>{{ blok.twitter.url }}</p>
             </v-flexible-link>
+            <v-flexible-link
+              :to="blok.instagram.url"
+              :target="blok.instagram.target"
+            >
+              <p>{{ blok.instagram.url }}</p>
+            </v-flexible-link>
+            <v-flexible-link
+              :to="blok.facebook.url"
+              :target="blok.facebook.target"
+            >
+              <p>{{ blok.facebook.url }}</p>
+            </v-flexible-link>
+            <v-flexible-link
+              :to="blok.discord.url"
+              :target="blok.discord.target"
+            >
+              <p>{{ blok.discord.url }}</p>
+            </v-flexible-link>
+            <v-flexible-link :to="blok.github.url" :target="blok.github.target">
+              <p>{{ blok.github.url }}</p>
+            </v-flexible-link>
+            <v-flexible-link :to="blok.paypal.url" :target="blok.paypal.target">
+              <p>{{ blok.paypal.url }}</p>
+            </v-flexible-link> -->
           </div>
         </div>
       </div>

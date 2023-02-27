@@ -1,6 +1,6 @@
 import { defineNuxtPlugin } from '#app'
 // import Divider from 'primevue/divider/divider.esm.js'
-// import Button from 'primevue/button/button.esm.js'
+import Button from 'primevue/button/button.esm.js'
 // import Checkbox from 'primevue/checkbox/checkbox.esm.js'
 // import Dialog from 'primevue/dialog/dialog.esm.js'
 // import DialogService from 'primevue/dialogservice/dialogservice.esm.js'
@@ -22,6 +22,7 @@ import PrimeVue from 'primevue/config/config.esm.js'
 //import Toast from 'primevue/toast'
 //import ToastService from 'primevue/toastservice'
 // import Tag from "primevue/tag"
+import Tooltip from 'primevue/tooltip/tooltip.esm.js'
 // import InputText from 'primevue/inputText';
 // import Breadcrumb from 'primevue/breadcrumb';
 // import MegaMenu from 'primevue/megamenu';
@@ -34,7 +35,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     // nuxtApp.vueApp.component('Divider', Divider)
     // nuxtApp.vueApp.component('Checkbox', Checkbox)
     // nuxtApp.vueApp.component('InputText', InputText)
-    // nuxtApp.vueApp.component('Button', Button)
+    nuxtApp.vueApp.component('Button', Button)
     // nuxtApp.vueApp.component('Image', Image)
     // nuxtApp.vueApp.component('InputSwitch', InputSwitch)
     nuxtApp.vueApp.component('Menubar', Menubar)
@@ -45,12 +46,12 @@ export default defineNuxtPlugin((nuxtApp) => {
     // nuxtApp.vueApp.component('Paginator', Paginator)
     // nuxtApp.vueApp.component('ProgressSpinner ', ProgressSpinner)
     // nuxtApp.vueApp.component('Skeleton', Skeleton)
-    // nuxtApp.vueApp.component('Tag', Tag)
     // nuxtApp.vueApp.component('Carousel', Carousel)
     //nuxtApp.vueApp.component('ScrollTop', ScrollTop)
     //nuxtApp.vueApp.component('Toast', Toast)
-
     // nuxtApp.vueApp.component('Tag', Tag)
+    nuxtApp.vueApp.component('Tooltip', Tooltip)
+    nuxtApp.vueApp.directive('tooltip', Tooltip)
     // nuxtApp.vueApp.component('Menubar', Menubar)
     // nuxtApp.vueApp.component('InputText', InputText)
     // nuxtApp.vueApp.component('Breadcrumb', Breadcrumb)
