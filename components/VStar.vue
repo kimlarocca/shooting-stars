@@ -35,12 +35,6 @@
           />
           <i class="pi pi-star-fill top" />
           <i class="pi pi-star-fill bottom" />
-          <!-- <div class="star top pi pi-spin">
-            <img src="/images/blank.png" />
-          </div>
-          <div class="star bottom">
-            <img src="/images/blank.png" />
-          </div> -->
         </div>
         <div class="custom-shape-divider-bottom-1682882926">
           <svg
@@ -74,10 +68,10 @@
             <p v-if="item.c[6]?.v">Favorite Subject: {{ item.c[6].v }}</p>
             <p v-if="item.c[7]?.v">Favorite Hobby: {{ item.c[7].v }}</p>
             <p v-if="item.c[8]?.v">
-              What do you want to be when you grow up? {{ item.c[8].v }}
+              What I to be when I grow up: {{ item.c[8].v }}
             </p>
             <p v-if="item.c[9]?.v">
-              What are you most excited about for middle school?
+              What I'm most excited about for middle school:
               {{ item.c[9].v }}
             </p>
             <div v-if="item.c[10]?.v">
@@ -171,8 +165,8 @@ const sizes = Array.from({ length: 150 }, () =>
 
 .pi-times {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
   font-size: 1.5rem;
 }
