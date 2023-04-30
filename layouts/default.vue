@@ -1,20 +1,5 @@
-<script setup>
-import { ref } from 'vue'
-import { useRuntimeConfig } from '#app'
-import { getMenuData } from '~/utilities/menuData.js'
-const config = useRuntimeConfig()
-const route = useRoute()
-const darkMode = ref(false)
-const globalMenuData = useMenuData()
-globalMenuData.value = await getMenuData()
-</script>
-
 <template>
-  <div
-    class="page"
-    :class="[`${route.name}`]"
-    :data-style-mode="darkMode ? 'dark' : 'default'"
-  >
+  <div class="page" :class="route.name">
     <Html lang="en">
       <Head>
         <Link
@@ -35,84 +20,75 @@ globalMenuData.value = await getMenuData()
           href="/favicon-16x16.png"
         />
         <Link rel="manifest" href="/site.webmanifest" />
-        <Link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff" />
         <Meta name="msapplication-TileColor" content="#ffffff" />
         <Meta name="theme-color" content="#ffffff" />
-
-        <Link
-          rel="canonical"
-          :href="`https://dtssecurityllc.com${route.path}`"
-        />
-        <Title>Diversified Technology Service, LLC</Title>
-        <Meta name="description" content="Security Description to come." />
-        <Meta name="keywords" content="Security keywords to come." />
-        <Meta
-          name="og:site_name"
-          content="Diversified Technology Service, LLC"
-        />
-        <Meta name="og:type" content="website" />
-        <Meta
-          name="og:url"
-          :content="`https://www.dtssecurityllc.com${route.fullPath}`"
-        />
-        <Meta name="og:title" content="Diversified Technology Service, LLC" />
-        <Meta name="og:description" content="Investigating a strange world." />
-        <Meta name="og:image" content="/og-default-image.png" />
-        <Meta
-          name="og:image:alt"
-          content="Diversified Technology Service, LLC"
-        />
-        <Meta name="og:image:width" content="1200" />
-        <Meta name="og:image:height" content="600" />
-        <!--  <Meta name="fb:app_id" content="151261804904925" /> -->
-        <!--         <Meta
-          name="fb:pages"
-          content="224921207956535"
-          data-detail="WNYC Studios"
-        /> -->
-        <!-- <Meta name="twitter:card" content="summary_large_image" />
-        <Meta name="twitter:site" content="@radiolab" />
-        <Meta
-          name="twitter:title"
-          content="Diversified Technology Service, LLC"
-        />
-        <Meta
-          name="twitter:description"
-          content="Investigating a strange world."
-        />
-        <Meta name="twitter:image" content="/og-default-image.png" />
-        <Meta
-          name="apple-itunes-app"
-          content="app-id=152249110, affiliate-data=at=1010lSme&amp;ct=radiolab"
-        /> -->
+        <Title>MTES Shooting Stars!</Title>
       </Head>
     </Html>
-    <Menubar :model="globalMenuData">
-      <template #start>
-        <nuxt-link to="/" class="logo-holder-link">
-          <img src="/images/dts_alone_2022.svg" alt="dts logo" />
-        </nuxt-link>
-      </template>
-    </Menubar>
-
-    <main>
+    <main class="p-2">
+      <div class="title">
+        <h1><span>MTES</span><span>Shooting</span><span>Stars</span></h1>
+      </div>
       <slot />
     </main>
-    footer
+    <div class="stars"></div>
+    <div class="twinkling"></div>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.p-menubar {
-  border-radius: 0;
-  padding: 0.5rem;
-  .logo-holder-link {
-    img {
-      width: 120px;
-      position: relative;
-      display: block;
-      margin-right: 0.5rem;
+<script setup>
+const route = useRoute()
+</script>
+
+<style lang="scss">
+.title {
+  z-index: 100;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  text-align: right;
+  span {
+    display: block;
+    margin-bottom: -15px;
+    &:nth-child(2) {
+      font-size: 1.6rem;
+      margin-bottom: -20px;
     }
+    &:nth-child(3) {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.stars,
+.twinkling {
+  position: fixed;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.stars {
+  z-index: -1;
+  background: #00152b url('/images/stars.png') repeat top center;
+}
+
+.twinkling {
+  z-index: -1;
+  background: transparent url('/images/twinkling.png') repeat top center;
+  animation: move-twink-back 400s linear infinite;
+}
+
+@keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
   }
 }
 </style>

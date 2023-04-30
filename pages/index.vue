@@ -1,46 +1,44 @@
-<script setup>
-const story = await useAsyncStoryblok('home', { version: 'draft' })
-</script>
-
 <template>
-  <!-- <pre>{{ story }}</pre> -->
-  <StoryblokComponent v-if="story" :blok="story.content" />
-  <div class="grid mt-5">
-    <div class="box col-6">
-      <div class="container">
-        <div class="root flex">
-          <div class="box">1</div>
-          <div class="box">2</div>
-          <div class="box">3</div>
-        </div>
-      </div>
-    </div>
-    <div class="box col-3">2</div>
-    <div class="box col-3">3</div>
+  <div v-if="sheetData" class="home grid">
+    <MasonryWall
+      :items="sheetData"
+      :column-width="320"
+      :ssr-columns="1"
+      :gap="0"
+      class="w-full m-auto"
+    >
+      <template #default="{ item, index }">
+        <v-star :item="item" :index="index" />
+      </template>
+    </MasonryWall>
   </div>
 </template>
 
+<script setup>
+const sheetData = ref(null)
+const sheetId = '1Q7uLWJv9Sdb6d5kyFjWTT9Z9reXf8RESU-pTR7f1tvQ'
+const sheetNumber = '0'
+const sheetUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&tq&gid=${sheetNumber}`
+
+// get the sheet data from the google sheet
+fetch(sheetUrl)
+  .then((response) => response.text())
+  .then((data) => {
+    // format the sheet data
+    let json_string = data.substring(47).slice(0, -2)
+    let formattedData = JSON.parse(json_string)
+    sheetData.value = formattedData.table.rows
+    // randomly sort the sheetData array
+    sheetData.value.sort(() => Math.random() - 0.5)
+  })
+</script>
+
 <style lang="scss">
-.grid {
-  justify-content: space-around;
-  .box {
-    background-color: tan;
-  }
-  .container {
-    container-type: inline-size;
-  }
-  .root {
-    gap: 1rem;
-    justify-content: space-between;
-    .box {
-      background-color: lightblue;
-    }
-  }
+.home {
+  color: white;
+  stroke: #00152b 10px;
 }
-@container (max-width: 400px) {
-  .root {
-    gap: 3rem;
-    font-size: 2.25rem;
-  }
+.masonry-wall {
+  overflow: hidden;
 }
 </style>
