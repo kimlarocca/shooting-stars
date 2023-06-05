@@ -1,6 +1,0 @@
-const index_vue_vue_type_style_index_0_lang = '@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Open+Sans:wght@300&display=swap");body,html{font-family:Audiowide,sans-serif;font-size:22px;font-weight:300;overflow-x:hidden}hr{border:none;border-bottom:1px solid var(--gray);height:0;margin:0}ol,ul{margin-left:20px}img{height:auto;max-width:100%}h1,h2,h3,h4,h5,h6{margin:0;padding:0}h1{-webkit-text-stroke:1px #00152b;color:#fff}h1,h2{font-family:Audiowide,sans-serif;font-size:3rem;line-height:3rem;text-transform:uppercase}h2,h3{color:#00152b}h3{font-family:Audiowide,sans-serif;font-size:4rem;line-height:4rem;text-transform:uppercase}p{line-height:1.5em}.clickable{cursor:pointer;opacity:1;transition:.25s ease-out}.clickable:hover{opacity:.7}.slide-fade-enter-active{transition:all .3s ease-out}.slide-fade-leave-active{transition:all .3s cubic-bezier(1,.5,.8,1)}.slide-fade-enter-from,.slide-fade-leave-to{opacity:0;transform:translateX(20px)}.w800{max-width:100%;width:800px}.home{stroke:#00152b 10px;color:#fff}.masonry-wall{overflow:hidden}';
-
-const indexStyles_eaf8f386 = [index_vue_vue_type_style_index_0_lang];
-
-export { indexStyles_eaf8f386 as default };
-//# sourceMappingURL=index-styles.eaf8f386.mjs.map
