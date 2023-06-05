@@ -8,6 +8,9 @@
       class="w-full m-auto"
     >
       <template #default="{ item, index }">
+        <div v-if="index === 0" class="title">
+          <h1><span>MTES</span><span>Shooting</span><span>Stars</span></h1>
+        </div>
         <v-star :item="item" :index="index" />
       </template>
     </MasonryWall>
@@ -36,9 +39,23 @@ fetch(sheetUrl)
 <style lang="scss">
 .home {
   color: white;
-  stroke: #00152b 10px;
 }
 .masonry-wall {
   overflow: hidden;
+}
+.title {
+  text-align: center;
+  padding: 20px 20px 40px;
+  span {
+    display: block;
+    margin-bottom: -15px;
+    &:nth-child(2) {
+      font-size: 1.6rem;
+      margin-bottom: -20px;
+    }
+    &:nth-child(3) {
+      font-size: 2.5rem;
+    }
+  }
 }
 </style>

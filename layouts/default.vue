@@ -26,9 +26,6 @@
       </Head>
     </Html>
     <main class="p-2">
-      <div class="title">
-        <h1><span>MTES</span><span>Shooting</span><span>Stars</span></h1>
-      </div>
       <slot />
     </main>
     <div class="stars"></div>
@@ -41,25 +38,6 @@ const route = useRoute()
 </script>
 
 <style lang="scss">
-.title {
-  z-index: 100;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  text-align: right;
-  span {
-    display: block;
-    margin-bottom: -15px;
-    &:nth-child(2) {
-      font-size: 1.6rem;
-      margin-bottom: -20px;
-    }
-    &:nth-child(3) {
-      font-size: 2.5rem;
-    }
-  }
-}
-
 .stars,
 .twinkling {
   position: fixed;
