@@ -19,7 +19,7 @@
       @click="visible = true"
     >
       <div class="blank">
-        <p>{{ item.c[1].v }}<br />{{ item.c[2].v[0] }}</p>
+        <p>{{ item.c[1].v }}</p>
         <img src="/images/blank.png" :alt="`${item.c[1].v} ${item.c[2].v}`" />
       </div>
     </div>
@@ -140,8 +140,8 @@ const sizes = Array.from({ length: 150 }, () =>
     color: rgb(0, 21, 43);
     font-family: 'Audiowide', sans-serif;
     text-transform: uppercase;
-    font-size: 2.5rem;
-    line-height: 2.5rem;
+    font-size: 1.75rem;
+    line-height: 1.75rem;
     top: 110px;
     width: 100%;
     margin: auto;
